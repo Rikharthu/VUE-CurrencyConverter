@@ -1,10 +1,13 @@
 new Vue({
   el: '#app',
+  
   data: {
+    apiKey: 'de7c25351319ee026c9b',
     currencies: {},
     amount: 0,
     from: '',
-    to: ''
+    to: '',
+    result: 0
   },
 
   mounted() {
@@ -14,6 +17,9 @@ new Vue({
   computed: {
     formattedCurrencies() {
       return Object.values(this.currencies);
+    },
+    calculateResult() {
+      return (Number(this.amount) * this.result).toFixed(2);
     }
   },
 
@@ -31,12 +37,21 @@ new Vue({
       }
 
       // else makes request to api and saving it
-      axios.get('https://free.currconv.com/api/v7/currencies?apiKey=de7c25351319ee026c9b')
+      axios.get(`https://free.currconv.com/api/v7/currencies?apiKey=${this.apiKey}`)
         .then(response => {
 
           this.currencies = response.data.results
           localStorage.setItem('currencies', JSON.stringify(response.data.results))
       })
+    },
+    convertCurrency() {
+
+      const key = `${this.from}_${this.to}`;
+      axios.get(`https://free.currconv.com/api/v7/convert?q=${key}&apiKey=${this.apiKey}`)
+        .then(response => {
+
+          this.result = response.data.results[key].val
+        })
     }
   }
 });
