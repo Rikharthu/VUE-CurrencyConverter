@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style media="screen">
+
+      * {
+        border-radius:  0!important;
+      }
+
+      body {
+        background-color:  #E7F7F9;
+        font-family: : 'Poppins', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container my-5">
+        
+        <div class="row">
+          <div class="col-md-6">
+            <label>From</label>
+            <select class="form-control">
+              <option>usd</option>
+              <option>euro</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label>To</label>
+            <select class="form-control">
+              <option>usd</option>
+              <option>euro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <input type="text" class="form-control my-5" placeholder="Amount">
+            <div class="text-center">
+              <button type="button" class="btn btn-lg btn-primary" name="button">Convert</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <h1 class="text-center display-2 mt-5">54</h1>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </body>
+</html>
