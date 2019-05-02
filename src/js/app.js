@@ -1,6 +1,6 @@
 new Vue({
   el: '#app',
-  
+
   data: {
     apiKey: 'de7c25351319ee026c9b',
     currencies: {},
@@ -20,6 +20,9 @@ new Vue({
     },
     calculateResult() {
       return (Number(this.amount) * this.result).toFixed(2);
+    },
+    disabled() {
+      return this.amount === 0 || !this.amount;
     }
   },
 
