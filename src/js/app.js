@@ -60,5 +60,13 @@ new Vue({
           this.loading = false;
         })
     }
+  },
+  watch: {
+    from() {
+      this.result = 0;
+    },
+    to() {
+      this.result = 0;
+    }
   }
 });
