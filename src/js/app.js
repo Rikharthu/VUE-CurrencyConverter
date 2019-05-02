@@ -7,7 +7,8 @@ new Vue({
     amount: 0,
     from: '',
     to: '',
-    result: 0
+    result: 0,
+    loading: false,
   },
 
   mounted() {
@@ -22,7 +23,7 @@ new Vue({
       return (Number(this.amount) * this.result).toFixed(2);
     },
     disabled() {
-      return this.amount === 0 || !this.amount;
+      return this.amount === 0 || !this.amount || this.loading;
     }
   },
 
@@ -50,10 +51,13 @@ new Vue({
     convertCurrency() {
 
       const key = `${this.from}_${this.to}`;
+
+      this.loading = true;
       axios.get(`https://free.currconv.com/api/v7/convert?q=${key}&apiKey=${this.apiKey}`)
         .then(response => {
 
           this.result = response.data.results[key].val
+          this.loading = false;
         })
     }
   }
