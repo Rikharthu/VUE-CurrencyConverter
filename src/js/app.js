@@ -1,7 +1,10 @@
 new Vue({
   el: '#app',
   data: {
-    currencies: {}
+    currencies: {},
+    amount: 0,
+    from: '',
+    to: ''
   },
 
   mounted() {
