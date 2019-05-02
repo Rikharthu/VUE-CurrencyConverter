@@ -8,6 +8,12 @@ new Vue({
     this.getCurrencies();
   },
 
+  computed: {
+    formattedCurrencies() {
+      return Object.values(this.currencies);
+    }
+  },
+
   methods: {
     getCurrencies() {
 
